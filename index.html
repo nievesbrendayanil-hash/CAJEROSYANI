@@ -77,10 +77,6 @@ fbq(
 
 <style>
 
-/* =========================================
-COLORES
-========================================= */
-
 :root{
 
     --verde:#24e77e;
@@ -99,16 +95,10 @@ COLORES
 }
 
 
-/* =========================================
-RESET
-========================================= */
-
 *{
 
     box-sizing:border-box;
-
     margin:0;
-
     padding:0;
 
 }
@@ -177,7 +167,6 @@ body::before{
     z-index:-1;
 
     left:50%;
-
     top:20%;
 
     transform:
@@ -233,7 +222,8 @@ GENERAL
     border-radius:24px;
 
     box-shadow:
-    0 20px 50px
+    0 20px
+    50px
     rgba(0,0,0,.30);
 
 }
@@ -248,7 +238,8 @@ header{
     text-align:center;
 
     padding:
-    28px 15px
+    28px
+    15px
     20px;
 
 }
@@ -340,7 +331,8 @@ HERO
     text-align:center;
 
     padding:
-    60px 24px;
+    60px
+    24px;
 
     margin-top:10px;
 
@@ -551,7 +543,8 @@ FORMULARIO
 
     height:58px;
 
-    border:1px solid
+    border:
+    1px solid
     rgba(255,255,255,.14);
 
     border-radius:15px;
@@ -564,7 +557,8 @@ FORMULARIO
     rgba(0,0,0,.48);
 
     padding:
-    0 18px;
+    0
+    18px;
 
     font-size:16px;
 
@@ -641,7 +635,8 @@ BOTONES
     );
 
     box-shadow:
-    0 12px 35px
+    0 12px
+    35px
     rgba(0,210,110,.25);
 
 }
@@ -668,7 +663,7 @@ BOTONES
 
 
 /* =========================================
-SECCIÓN TAREAS
+SECCIONES
 ========================================= */
 
 .section{
@@ -756,6 +751,7 @@ SECCIÓN TAREAS
     color:#111;
 
     background:
+
     linear-gradient(
         135deg,
         var(--dorado),
@@ -930,6 +926,7 @@ WHATSAPP FLOTANTE
     color:#06150c;
 
     background:
+
     linear-gradient(
         135deg,
         #1edb76,
@@ -939,7 +936,8 @@ WHATSAPP FLOTANTE
     font-weight:900;
 
     box-shadow:
-    0 10px 30px
+    0 10px
+    30px
     rgba(0,220,115,.30);
 
 }
@@ -1013,12 +1011,6 @@ RESPONSIVE
     .container{
 
         width:94%;
-
-    }
-
-    header{
-
-        padding-top:20px;
 
     }
 
@@ -1151,8 +1143,6 @@ CONTENIDO
 <main class="container">
 
 
-<!-- HERO -->
-
 <section class="hero card">
 
 
@@ -1198,8 +1188,6 @@ y la modalidad de trabajo.
 </div>
 
 
-<!-- FORMULARIO -->
-
 <div class="form-box">
 
 
@@ -1243,7 +1231,9 @@ con un mensaje preparado.
 </section>
 
 
-<!-- TAREAS -->
+<!-- =========================================
+TAREAS
+========================================= -->
 
 <section class="section">
 
@@ -1278,8 +1268,7 @@ Atención a usuarios
 
 Comunicación,
 consultas
-y seguimiento
-de usuarios.
+y seguimiento de usuarios.
 
 </p>
 
@@ -1299,8 +1288,7 @@ Cargas y retiros
 <p>
 
 Gestión operativa
-dentro de las
-plataformas online.
+dentro de las plataformas online.
 
 </p>
 
@@ -1319,9 +1307,8 @@ Trabajo remoto
 
 <p>
 
-La actividad puede
-gestionarse principalmente
-desde celular
+La actividad puede gestionarse
+principalmente desde celular
 o computadora.
 
 </p>
@@ -1331,8 +1318,6 @@ o computadora.
 
 </div>
 
-
-<!-- DETALLES -->
 
 <div class="details">
 
@@ -1429,7 +1414,9 @@ de entretenimiento.
 </section>
 
 
-<!-- CTA FINAL -->
+<!-- =========================================
+CTA FINAL
+========================================= -->
 
 <section class="final card">
 
@@ -1438,6 +1425,7 @@ de entretenimiento.
 GRUPO MyB
 
 </div>
+
 
 <h2>
 
@@ -1474,7 +1462,7 @@ onclick="enviarWhatsApp()">
 
 
 <!-- =========================================
-BOTÓN WHATSAPP FLOTANTE
+WHATSAPP FLOTANTE
 ========================================= -->
 
 <a
@@ -1499,17 +1487,15 @@ FOOTER
 <footer>
 
 <strong>
-
 GRUPO MyB
-
 </strong>
 
 <small>
 
 Información para personas
 interesadas en conocer
-nuestra modalidad
-de trabajo con plataformas online.
+nuestra modalidad de trabajo
+con plataformas online.
 
 </small>
 
@@ -1526,33 +1512,53 @@ JAVASCRIPT
 /*
 =========================================
 WHATSAPP
-2664367922
 
-Formato internacional:
-54 Argentina
-9 celular
-2664367922 número
+NÚMERO:
+2664210678
 
-Resultado:
-5492664367922
+FORMATO INTERNACIONAL:
+5492664210678
 =========================================
 */
 
 
-const WHATSAPP_NUMBER = "5492664367922";
+const WHATSAPP_NUMBER = "5492664210678";
 
 
 /*
 =========================================
-PIXEL CLICK WHATSAPP
+META PIXEL
+
+Cuando tocan WhatsApp enviamos:
+
+1) Contact
+2) ClickWhatsApp
 =========================================
 */
+
 
 function registrarClickWhatsApp(){
 
     if(
         typeof fbq === "function"
     ){
+
+        /*
+        EVENTO ESTÁNDAR
+        Meta debería reconocerlo
+        como Contactar
+        */
+
+        fbq(
+            "track",
+            "Contact"
+        );
+
+
+        /*
+        EVENTO PERSONALIZADO
+        QUE YA VENÍAMOS USANDO
+        */
 
         fbq(
             "trackCustom",
@@ -1566,21 +1572,27 @@ function registrarClickWhatsApp(){
 
 /*
 =========================================
-GENERAR LINK WHATSAPP
+CREAR URL WHATSAPP
 =========================================
 */
+
 
 function crearWhatsAppUrl(
     mensaje
 ){
 
     return (
+
         "https://wa.me/" +
+
         WHATSAPP_NUMBER +
+
         "?text=" +
+
         encodeURIComponent(
             mensaje
         )
+
     );
 
 }
@@ -1592,6 +1604,7 @@ BOTONES PRINCIPALES
 =========================================
 */
 
+
 function enviarWhatsApp(){
 
     const campoNombre =
@@ -1602,8 +1615,10 @@ function enviarWhatsApp(){
 
     const nombre =
     campoNombre
-    ? campoNombre.value.trim()
-    : "";
+    ?
+    campoNombre.value.trim()
+    :
+    "";
 
 
     let mensaje;
@@ -1612,8 +1627,11 @@ function enviarWhatsApp(){
     if(nombre){
 
         mensaje =
+
         "Hola, soy " +
+
         nombre +
+
         ". Quiero información para ser cajero/a de Grupo MyB.";
 
     }
@@ -1621,10 +1639,16 @@ function enviarWhatsApp(){
     else{
 
         mensaje =
+
         "Hola, quiero información para ser cajero/a de Grupo MyB.";
 
     }
 
+
+    /*
+    REGISTRAMOS
+    CONTACT + CLICKWHATSAPP
+    */
 
     registrarClickWhatsApp();
 
@@ -1645,9 +1669,10 @@ function enviarWhatsApp(){
 
 /*
 =========================================
-BOTÓN FLOTANTE
+WHATSAPP FLOTANTE
 =========================================
 */
+
 
 function enviarWhatsAppFlotante(
     event
@@ -1657,8 +1682,14 @@ function enviarWhatsAppFlotante(
 
 
     const mensaje =
+
     "Hola, quiero información para ser cajero/a de Grupo MyB.";
 
+
+    /*
+    REGISTRAMOS
+    CONTACT + CLICKWHATSAPP
+    */
 
     registrarClickWhatsApp();
 
