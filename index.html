@@ -1514,15 +1514,15 @@ JAVASCRIPT
 WHATSAPP
 
 NÚMERO:
-2665294593
+1161128471
 
 FORMATO INTERNACIONAL:
-5492665294593
+5491161128471
 =========================================
 */
 
 
-const WHATSAPP_NUMBER = "5492665294593";
+const WHATSAPP_NUMBER = "5491161128471";
 
 
 /*
@@ -1543,22 +1543,10 @@ function registrarClickWhatsApp(){
         typeof fbq === "function"
     ){
 
-        /*
-        EVENTO ESTÁNDAR
-        Meta debería reconocerlo
-        como Contactar
-        */
-
         fbq(
             "track",
             "Contact"
         );
-
-
-        /*
-        EVENTO PERSONALIZADO
-        QUE YA VENÍAMOS USANDO
-        */
 
         fbq(
             "trackCustom",
@@ -1568,13 +1556,6 @@ function registrarClickWhatsApp(){
     }
 
 }
-
-
-/*
-=========================================
-CREAR URL WHATSAPP
-=========================================
-*/
 
 
 function crearWhatsAppUrl(
@@ -1596,13 +1577,6 @@ function crearWhatsAppUrl(
     );
 
 }
-
-
-/*
-=========================================
-BOTONES PRINCIPALES
-=========================================
-*/
 
 
 function enviarWhatsApp(){
@@ -1645,11 +1619,6 @@ function enviarWhatsApp(){
     }
 
 
-    /*
-    REGISTRAMOS
-    CONTACT + CLICKWHATSAPP
-    */
-
     registrarClickWhatsApp();
 
 
@@ -1667,13 +1636,6 @@ function enviarWhatsApp(){
 }
 
 
-/*
-=========================================
-WHATSAPP FLOTANTE
-=========================================
-*/
-
-
 function enviarWhatsAppFlotante(
     event
 ){
@@ -1685,11 +1647,6 @@ function enviarWhatsAppFlotante(
 
     "Hola, quiero información para ser cajero/a de Grupo MyB.";
 
-
-    /*
-    REGISTRAMOS
-    CONTACT + CLICKWHATSAPP
-    */
 
     registrarClickWhatsApp();
 
